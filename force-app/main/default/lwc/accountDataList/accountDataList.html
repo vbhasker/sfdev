@@ -1,0 +1,19 @@
+<template>
+    <h1>List of Customers</h1>
+    <br>
+    <div>
+        <template if:true={accounts.data}>
+            <lightning-datatable
+                    key-field="id"
+                    data={accounts.data}
+                    show-row-number-column
+                    row-number-offset={rowOffset}
+                    hide-checkbox-column
+                    columns={columns}>
+            </lightning-datatable>
+        </template>
+        <template if:true={accounts.error}>
+            {contacts.error}
+        </template>
+    </div>
+</template>

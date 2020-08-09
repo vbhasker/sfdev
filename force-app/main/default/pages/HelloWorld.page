@@ -1,0 +1,13 @@
+<!--
+ - Created by vinodh on 2/9/20.
+ -->
+
+<apex:page id="HelloWorld" sideBar="false" showHeader="false">
+    <h1>Hello World! {! $User.FirstName & ' ' & $User.LastName }</h1>
+    <apex:pageBlock title="User Status">
+        <apex:pageBlockSection columns="1">
+            {! $User.FirstName & ' ' & $User.LastName }
+            {!IF($User.IsActive, $User.Username, 'inactive')}
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

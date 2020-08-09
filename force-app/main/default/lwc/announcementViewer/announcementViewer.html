@@ -1,0 +1,38 @@
+<template>
+  <lightning-card title={componentTitle} style="font-weight: bold;">
+    <div class="slds-text-align_center slds-m-around_x-small">
+      <template if:true={autoPlay}>
+        <div class="slds-carousel">
+          <div class="slds-carousel__stage">
+            <div class="slds-carousel__panels" style="transform:translateX(-100%)">
+              <div id="content-id-01" class="slds-carousel__panel" role="tabpanel" aria-hidden="true" aria-labelledby="indicator-id-01">
+                <a href="javascript:void(0);" class="slds-carousel__panel-action slds-text-link_reset" tabindex="-1">
+                  <div class="slds-carousel__content">
+                    <div class="slds-carousel__content-title">Visit App Exchange</div>
+                    <p>Extend Salesforce with the #1 business marketplace.</p>
+                  </div>
+                </a>
+              </div>
+              <div id="content-id-02" class="slds-carousel__panel" role="tabpanel" aria-hidden="false" aria-labelledby="indicator-id-02">
+                <a href="javascript:void(0);" class="slds-carousel__panel-action slds-text-link_reset" tabindex="0">
+                  <div class="slds-carousel__content" style="text-align: left;">
+                    <div style="font-weight: bold;">Click to Customize</div>
+                    <p style="font-weight: normal;">Use the Object Manager to add fields, build layouts, and more.</p>
+                  </div>
+                </a>
+              </div>
+              <div id="content-id-03" class="slds-carousel__panel" role="tabpanel" aria-hidden="true" aria-labelledby="indicator-id-03">
+                <a href="javascript:void(0);" class="slds-carousel__panel-action slds-text-link_reset" tabindex="-1">
+                  <div class="slds-carousel__content">
+                    <div class="slds-carousel__content-title">Download SalesforceA</div>
+                    <p>Get the mobile app that&#x27;s just for Salesforce admins.</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+  </lightning-card>
+</template>
