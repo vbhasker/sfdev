@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <name>Update_Opportunity_Fields</name>
+        <label>Update Opportunity Fields</label>
+        <locationX>200</locationX>
+        <locationY>58</locationY>
+        <assignmentItems>
+            <assignToReference>opportunity.StageName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Prospecting</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>opportunity.CloseDate</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Ninety_Days</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Clone_Opportunity</targetReference>
+        </connector>
+    </assignments>
+    <formulas>
+        <description>90 days + close date</description>
+        <name>Ninety_Days</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()+90</expression>
+    </formulas>
+    <interviewLabel>Renew Opportunity {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Renew Opportunity</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Clone_Opportunity</name>
+        <label>Clone Opportunity</label>
+        <locationX>350</locationX>
+        <locationY>57</locationY>
+        <inputReference>opportunity</inputReference>
+    </recordCreates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>57</locationY>
+        <connector>
+            <targetReference>Update_Opportunity_Fields</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <name>opportunity</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>opportunity_product_original</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>OpportunityLineItem</objectType>
+    </variables>
+</Flow>
